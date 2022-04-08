@@ -39,6 +39,7 @@ const NewTask = () => {
       category: taskService.categories[selectedCategoryIndex],
       done: false
     }
+    console.log('will save task:', task)
     taskService.setTask(task)
     navigate('/add-tasks')
   }

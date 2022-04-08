@@ -11,7 +11,7 @@ const Home = () => {
       </div>
       <span>Faça mais com menos</span>
       <div className={styles.buttonContainer}>
-        <Link to={"/app"} className={buttonStyles.fullButton}>Seguir para o app</Link>
+        <Link to={"/add-tasks"} className={buttonStyles.fullButton}>Seguir para o app</Link>
       </div>
     </div>
   </section>

@@ -9,7 +9,7 @@ const AddTasks = () => {
     const tasks = taskService.listTodayTasks()
     return tasks.map((task, idx) => {
       const link = `/edit-task?name=${encodeURIComponent(task.name)}&category=${encodeURIComponent(task.category)}`
-      return <Link to={link} key={`task-link-${idx}`}>{task.name}</Link>
+      return <Link to={link} key={`task-link-${idx}`} className={buttonStyles.lineButton}>{task.name}</Link>
     })
   }
   

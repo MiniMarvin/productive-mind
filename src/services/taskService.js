@@ -37,7 +37,7 @@ const getTodayIndex = () => {
  * @returns {task}
  */
 const getTask = (index, taskName) => {
-  const tasks = listTasks(index)
+  const tasks = getTasks(index)
   if (tasks === null) return null
   return tasks[taskName]
 }
@@ -50,7 +50,7 @@ const getTask = (index, taskName) => {
 const hasTask = (taskName) => {
   const index = getTodayIndex()
   const task = getTask(index, taskName)
-  return task !== null
+  return task != null
 }
 
 /**
@@ -58,11 +58,14 @@ const hasTask = (taskName) => {
  * @returns {boolean}
  */
 const setTask = (task) => {
+  const existingTask = hasTask(task.name)
+  console.log('task exists?', existingTask)
   if (task !== null && hasTask(task.name)) {
     return false
   } else {
     const tasks = getTodayTasks()
     const index = getTodayIndex()
+    console.log('tasks:', tasks)
     if (tasks !== null) {
       tasks[task.name] = task
       storage.setItem(index, JSON.stringify(tasks))
