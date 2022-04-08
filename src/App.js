@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter, Routes,
+  Route,
+} from "react-router-dom"
+import styles from './App.module.css';
+import AddTasks from './pages/add-tasks';
+import Home from './pages/home';
+import NewTask from './pages/new-task';
 
 function App() {
+  // TODO: define the render of the page here
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className={styles.appContainer}>
+      <section className={styles.app}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/add-tasks" element={<AddTasks />} />
+            <Route path="/new-task" element={<NewTask />} />
+          </Routes>
+        </BrowserRouter>
+      </section>
+    </main>
   );
 }
 

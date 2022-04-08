@@ -1,0 +1,15 @@
+.header {
+    width: 100%;
+    padding: 15px 0px 30px;
+}
+
+.header h1 {
+    font-weight: bold;
+    font-size: 36px;
+    margin: 0px;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
