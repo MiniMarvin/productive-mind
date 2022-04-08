@@ -9,3 +9,23 @@
     margin: 10px 0px;
     display: inline-block;
 }
+
+.lineButton {
+    padding: 10px 25px;
+    width: calc(100% - 54px);
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--green);
+    color: var(--green);
+    text-decoration: none;
+    text-align: center;
+    margin: 15px 0px; 
+    border-radius: 5px;
+    font-weight: bold;
+    line-height: 100%;
+}
+
+.lineButton:hover {
+    color: var(--blue);
+    border-color: var(--blue);
+}

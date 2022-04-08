@@ -4,6 +4,7 @@ import {
   Route,
 } from "react-router-dom"
 import styles from './App.module.css';
+import AddTasks from './pages/add-tasks';
 import Home from './pages/home';
 import NewTask from './pages/new-task';
 
@@ -15,6 +16,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/add-tasks" element={<AddTasks />} />
             <Route path="/new-task" element={<NewTask />} />
           </Routes>
         </BrowserRouter>

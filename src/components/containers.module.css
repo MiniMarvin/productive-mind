@@ -8,3 +8,8 @@
     font-size: 36px;
     margin: 0px;
 }
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
