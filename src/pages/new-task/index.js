@@ -1,10 +1,10 @@
 import { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from './styles.module.css'
 import inputStyles from '../../components/inputs.module.css'
 import containerStyles from '../../components/containers.module.css'
 import buttonStyles from '../../components/buttons.module.css'
-import { categories } from '../../services/categoryService'
+import * as taskService from '../../services/taskService'
 
 const emptyString = (string) => {
   return !(string !== null && string.replace(' ', '') !== '')
@@ -13,9 +13,10 @@ const emptyString = (string) => {
 const NewTask = () => {
   let [selectedCategoryIndex, setSelectedCategoryIndex] = useState(null)
   const inputRef = useRef()
+  const navigate = useNavigate()
 
   const renderButtons = () => {
-    return categories.map((category, idx) => {
+    return taskService.categories.map((category, idx) => {
       const selectButton = () => {
         if (selectedCategoryIndex !== idx) setSelectedCategoryIndex(idx)
         else setSelectedCategoryIndex(null)
@@ -33,8 +34,13 @@ const NewTask = () => {
 
   const saveItem = () => {
     const taskName = inputRef.current.value
-    console.log('task name: ', taskName)
-    console.log('category: ', categories[selectedCategoryIndex])
+    const task = {
+      name: taskName,
+      category: taskService.categories[selectedCategoryIndex],
+      done: false
+    }
+    taskService.setTask(task)
+    navigate('/add-tasks')
   }
 
   const isButtonEnabled = selectedCategoryIndex !== null && !emptyString(inputRef.current.value)
