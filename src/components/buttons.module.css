@@ -1,0 +1,10 @@
+.fullButton {
+    padding: 10px 25px;
+    width: 100%;
+    background-color: var(--green);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px 0px;
+}
