@@ -15,7 +15,6 @@ const categories = [
  * @returns {string}
  */
 const getIndex = (date) => {
-  console.log('date:', date)
   const year = `${date.getFullYear()}`
   const month = `${date.getMonth()}`.padStart(2, '0')
   const day = `${date.getDay()}`.padStart(2, '0')
@@ -62,7 +61,7 @@ const setTask = (task) => {
   if (task !== null && hasTask(task.name)) {
     return false
   } else {
-    const tasks = listTodayTasks()
+    const tasks = getTodayTasks()
     const index = getTodayIndex()
     if (tasks !== null) {
       tasks[task.name] = task
@@ -75,12 +74,22 @@ const setTask = (task) => {
   }
 }
 
-const listTasks = (index) => {
+const getTasks = (index) => {
   const item = storage.getItem(index)
   if (item === null) return null
-  const data = JSON.parse(storage.getItem(index))
-  const tasks = data[index]
+  const tasks = JSON.parse(item)
   return tasks
+}
+
+const getTodayTasks = () => {
+  const index = getTodayIndex()
+  return getTasks(index)
+}
+
+const listTasks = (index) => {
+  const tasks = getTasks(index)
+  if (tasks === null) return []
+  return Object.keys(tasks).map(key => tasks[key])
 }
 
 const listTodayTasks = () => {
@@ -92,6 +101,8 @@ export {
   getTask,
   hasTask,
   setTask,
+  getTasks,
+  getTodayTasks,
   listTasks,
   listTodayTasks,
   categories
