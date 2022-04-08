@@ -1,0 +1,12 @@
+.input {
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    width: calc(100% - 24px);
+    height: 30px;
+    padding: 5px 10px;
+    margin: 15px 0px;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+}

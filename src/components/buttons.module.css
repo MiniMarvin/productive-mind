@@ -4,10 +4,17 @@
     background-color: var(--green);
     color: var(--white);
     text-decoration: none;
-    border-radius: 5px;
     text-align: center;
     margin: 10px 0px;
     display: inline-block;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 5px;
+    border-width: 0px;
+}
+
+.fullButton:disabled {
+    background-color: lightgray;
 }
 
 .lineButton {
@@ -19,13 +26,24 @@
     color: var(--green);
     text-decoration: none;
     text-align: center;
-    margin: 15px 0px; 
+    margin: 15px 0px;
     border-radius: 5px;
     font-weight: bold;
     line-height: 100%;
+    background-color: transparent;
 }
 
 .lineButton:hover {
     color: var(--blue);
     border-color: var(--blue);
+}
+
+.backButton {
+    text-decoration: none;
+    color: var(--green);
+    font-size: 18px;
+}
+
+.backButton:hover {
+    color: var(--blue);
 }

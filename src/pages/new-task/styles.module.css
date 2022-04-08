@@ -1,0 +1,23 @@
+.buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.buttonContainer {
+    width: 120px;
+    margin: 5px;
+}
+
+.buttonContainer button {
+    margin: 0px;
+    width: 100%;
+}
+
+.save {
+    padding: 100px 0px 0px 0px;
+}
+
+.save button {
+    width: 100%;
+}
