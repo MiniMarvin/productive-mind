@@ -9,6 +9,10 @@
 
 html {
   background-color: var(--white);
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 body {
@@ -18,6 +22,10 @@ body {
   font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: calc(100% - 30px);
+  height: calc(100% - 20px);
+  overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 code {
