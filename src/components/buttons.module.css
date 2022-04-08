@@ -1,6 +1,6 @@
 .fullButton {
     padding: 10px 25px;
-    width: 100%;
+    width: calc(100% - 50px);
     background-color: var(--green);
     color: var(--white);
     text-decoration: none;

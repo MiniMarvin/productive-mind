@@ -1,5 +1,6 @@
 :root {
   --bg-color: #FDF9F0;
+  --dark-blue: #2C5D76;
   --blue: #3D7B9A;
   --green: #59C0B2;
   --yellow: #F8CC83;
@@ -20,6 +21,7 @@ body {
   padding: 10px 15px;
   background-color: var(--white);
   font-family: 'Rubik', sans-serif;
+  color: var(--dark-blue);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: calc(100% - 30px);
@@ -31,4 +33,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  height: calc(100% - 20px);
 }
