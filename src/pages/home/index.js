@@ -7,7 +7,9 @@ const Home = () => {
     <div className={styles.floatArea}>
       <h1>Productive Mind</h1>
       <span>Faça mais com menos</span>
-      <Link to={"/app"} className={buttonStyles.fullButton}>Seguir para o app</Link>
+      <div className={styles.buttonContainer}>
+        <Link to={"/app"} className={buttonStyles.fullButton}>Seguir para o app</Link>
+      </div>
     </div>
   </section>
 }

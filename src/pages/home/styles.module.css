@@ -9,4 +9,11 @@
 .floatArea {
     display: flex;
     flex-direction: column;
+    width: 100%
+}
+
+.buttonContainer {
+    width: calc(100% - 40px);
+    height: 50px;
+    margin: 30px 0px;
 }
