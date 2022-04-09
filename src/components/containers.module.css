@@ -25,4 +25,12 @@
     display: flex;
     flex-direction: row;
     align-items: stretch;
+    justify-content: space-between;
+}
+
+.footerItem {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
