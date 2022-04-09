@@ -14,19 +14,21 @@ const AddTasks = () => {
   }
   
   return (
-    <div className={`${containerStyles.page} ${containerStyles.full}`}>
-      <div className={containerStyles.page}>
+    <>
+      <section className={`${containerStyles.page} ${containerStyles.pageWithFooter}`}>
         <div className={containerStyles.header}>
           <h1>Hoje</h1>
         </div>
         <span>adicione todas as suas atividades para hoje</span>
         <Link to="/new-task" className={buttonStyles.lineButton}><span className={styles.plus}>+</span> <span>adicionar</span></Link>
-        <section className={styles.tasks}>
+        <div className={styles.tasks}>
           {renderTasks()}
-        </section>
-      </div>
-      <div className={containerStyles.footer}>next page</div>
-    </div>
+        </div>
+      </section>
+      <section className={containerStyles.footer}>
+        <span>next page</span>
+      </section>
+    </>
   )
 }
 
