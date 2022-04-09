@@ -1,0 +1,15 @@
+.tasks {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tasks button {
+    margin: 5px 0px;
+}
+
+.disabled {
+    pointer-events: none;
+    color: lightgray;
+}

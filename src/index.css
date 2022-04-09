@@ -38,3 +38,7 @@ code {
 #root {
   height: calc(100% - 20px);
 }
+
+button {
+  box-sizing: content-box;
+}

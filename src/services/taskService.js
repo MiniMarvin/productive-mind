@@ -11,6 +11,23 @@ const categories = [
 
 /**
  * 
+ * @param {string} category 
+ */
+const getCategoryNumber = (category) => {
+  if (category == null) return null
+  let num = null
+  for (let i = 0; i < categories.length; i++) {
+    if (categories[i] === category) {
+      num = i
+      break
+    }
+  }
+
+  return num
+}
+
+/**
+ * 
  * @param {Date} date 
  * @returns {string}
  */
@@ -58,9 +75,7 @@ const hasTask = (taskName) => {
  * @returns {boolean}
  */
 const setTask = (task) => {
-  const existingTask = hasTask(task.name)
-  console.log('task exists?', existingTask)
-  if (task !== null && hasTask(task.name)) {
+  if (task == null) {
     return false
   } else {
     const tasks = getTodayTasks()
@@ -75,6 +90,17 @@ const setTask = (task) => {
       storage.setItem(index, JSON.stringify(newTasks))
     }
   }
+}
+
+const removeTask = (taskName) => {
+  const index = getTodayIndex()
+  const tasks = getTasks(index)
+  if (tasks[taskName]) {
+    delete tasks[taskName]
+    storage.setItem(index, JSON.stringify(tasks))
+    return true
+  }
+  return false
 }
 
 const getTasks = (index) => {
@@ -100,13 +126,44 @@ const listTodayTasks = () => {
   return listTasks(index)
 }
 
+/**
+ * 
+ * @param {string} priority 
+ * @returns {{task: task, index: number}}
+ */
+const getTaskPriorityCategory = (priority) => {
+  const todayTasks = listTodayTasks()
+  const filteredTasks = todayTasks
+    .map((task, index) => ({task, index}))
+    .filter((task) => task.task.priority === priority)
+  if (filteredTasks.length === 0) return null
+  return filteredTasks[0]
+}
+
+const setTaskPriorityCategory = (taskName, priority) => {
+  const todayTasks = listTodayTasks()
+  
+  const newTasks = todayTasks
+    .filter(task => task.name === taskName || task.priority === priority)
+    .map(task => {
+      console.log(taskName, task.name)
+      if (task.name === taskName) return {...task, priority: priority}
+      return {...task, priority: null}
+    })
+  newTasks.forEach(task => setTask(task))
+}
+
 export {
   getTask,
   hasTask,
   setTask,
   getTasks,
   getTodayTasks,
+  removeTask,
   listTasks,
   listTodayTasks,
-  categories
+  categories,
+  getCategoryNumber,
+  getTaskPriorityCategory,
+  setTaskPriorityCategory
 }

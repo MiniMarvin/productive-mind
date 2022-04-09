@@ -13,16 +13,26 @@ const AddTasks = () => {
     })
   }
   
-  return <div className={containerStyles.page}>
-    <div className={containerStyles.header}>
-      <h1>Hoje</h1>
-    </div>
-    <span>adicione todas as suas atividades para hoje</span>
-    <Link to="/new-task" className={buttonStyles.lineButton}><span className={styles.plus}>+</span> <span>adicionar</span></Link>
-    <section className={styles.tasks}>
-      {renderTasks()}
-    </section>
-  </div>
+  return (
+    <>
+      <section className={`${containerStyles.page} ${containerStyles.pageWithFooter}`}>
+        <div className={containerStyles.header}>
+          <h1>Hoje</h1>
+        </div>
+        <span>adicione todas as suas atividades para hoje</span>
+        <Link to="/new-task" className={buttonStyles.lineButton}><span className={styles.plus}>+</span> <span>adicionar</span></Link>
+        <div className={styles.tasks}>
+          {renderTasks()}
+        </div>
+      </section>
+      <section className={containerStyles.footer}>
+        <div />
+        <div className={containerStyles.footerItem}>
+          <Link to="/prioritize/1" className={buttonStyles.backButton}>próximo {`>`}</Link>
+        </div>
+      </section>
+    </>
+  )
 }
 
 export default AddTasks

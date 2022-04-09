@@ -11,13 +11,12 @@
 
 .buttonContainer button {
     margin: 0px;
-    width: 100%;
 }
 
 .save {
     padding: 100px 0px 0px 0px;
 }
 
-.save button {
-    width: 100%;
+.delete {
+    padding: 0px;
 }
