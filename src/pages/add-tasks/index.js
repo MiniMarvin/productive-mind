@@ -26,7 +26,7 @@ const AddTasks = () => {
         </div>
       </section>
       <section className={containerStyles.footer}>
-        <span>next page</span>
+        <Link to="/prioritize"></Link>
       </section>
     </>
   )

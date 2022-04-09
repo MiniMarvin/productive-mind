@@ -11,6 +11,23 @@ const categories = [
 
 /**
  * 
+ * @param {string} category 
+ */
+const getCategoryNumber = (category) => {
+  if (category == null) return null
+  let num = null
+  for (let i = 0; i < categories.length; i++) {
+    if (categories[i] === category) {
+      num = i
+      break
+    }
+  }
+
+  return num
+}
+
+/**
+ * 
  * @param {Date} date 
  * @returns {string}
  */
@@ -77,6 +94,17 @@ const setTask = (task) => {
   }
 }
 
+const removeTask = (taskName) => {
+  const index = getTodayIndex()
+  const tasks = getTasks(index)
+  if (tasks[taskName]) {
+    delete tasks[taskName]
+    storage.setItem(index, JSON.stringify(tasks))
+    return true
+  }
+  return false
+}
+
 const getTasks = (index) => {
   const item = storage.getItem(index)
   if (item === null) return null
@@ -106,7 +134,9 @@ export {
   setTask,
   getTasks,
   getTodayTasks,
+  removeTask,
   listTasks,
   listTodayTasks,
-  categories
+  categories,
+  getCategoryNumber
 }

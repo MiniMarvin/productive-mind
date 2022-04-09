@@ -21,3 +21,11 @@
 .save button {
     width: 100%;
 }
+
+.delete {
+    padding: 0px;
+}
+
+.delete button {
+    width: 100%;
+}

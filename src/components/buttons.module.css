@@ -47,3 +47,7 @@
 .backButton:hover {
     color: var(--blue);
 }
+
+.destroy {
+    background-color: var(--red);
+}

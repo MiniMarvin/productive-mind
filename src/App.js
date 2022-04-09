@@ -18,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/add-tasks" element={<AddTasks />} />
             <Route path="/new-task" element={<NewTask />} />
+            <Route path="/edit-task" element={<NewTask edit={true} />} />
           </Routes>
         </BrowserRouter>
       </section>
