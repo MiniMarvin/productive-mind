@@ -13,16 +13,21 @@ const AddTasks = () => {
     })
   }
   
-  return <div className={containerStyles.page}>
-    <div className={containerStyles.header}>
-      <h1>Hoje</h1>
+  return (
+    <div className={`${containerStyles.page} ${containerStyles.full}`}>
+      <div className={containerStyles.page}>
+        <div className={containerStyles.header}>
+          <h1>Hoje</h1>
+        </div>
+        <span>adicione todas as suas atividades para hoje</span>
+        <Link to="/new-task" className={buttonStyles.lineButton}><span className={styles.plus}>+</span> <span>adicionar</span></Link>
+        <section className={styles.tasks}>
+          {renderTasks()}
+        </section>
+      </div>
+      <div className={containerStyles.footer}>next page</div>
     </div>
-    <span>adicione todas as suas atividades para hoje</span>
-    <Link to="/new-task" className={buttonStyles.lineButton}><span className={styles.plus}>+</span> <span>adicionar</span></Link>
-    <section className={styles.tasks}>
-      {renderTasks()}
-    </section>
-  </div>
+  )
 }
 
 export default AddTasks

@@ -12,4 +12,19 @@
 .page {
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
+}
+
+.full {
+    height: 100%;
+    justify-content: space-between;
+}
+
+.full:first-child {
+    max-height: calc(100% - 45px);
+}
+
+.footer {
+    height: 45px;
+    width: 100%;
 }
