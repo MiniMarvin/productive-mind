@@ -75,9 +75,7 @@ const hasTask = (taskName) => {
  * @returns {boolean}
  */
 const setTask = (task) => {
-  const existingTask = hasTask(task.name)
-  console.log('task exists?', existingTask)
-  if (task !== null && hasTask(task.name)) {
+  if (task == null) {
     return false
   } else {
     const tasks = getTodayTasks()
@@ -128,6 +126,33 @@ const listTodayTasks = () => {
   return listTasks(index)
 }
 
+/**
+ * 
+ * @param {string} priority 
+ * @returns {{task: task, index: number}}
+ */
+const getTaskPriorityCategory = (priority) => {
+  const todayTasks = listTodayTasks()
+  const filteredTasks = todayTasks
+    .map((task, index) => ({task, index}))
+    .filter((task) => task.task.priority === priority)
+  if (filteredTasks.length === 0) return null
+  return filteredTasks[0]
+}
+
+const setTaskPriorityCategory = (taskName, priority) => {
+  const todayTasks = listTodayTasks()
+  
+  const newTasks = todayTasks
+    .filter(task => task.name === taskName || task.priority === priority)
+    .map(task => {
+      console.log(taskName, task.name)
+      if (task.name === taskName) return {...task, priority: priority}
+      return {...task, priority: null}
+    })
+  newTasks.forEach(task => setTask(task))
+}
+
 export {
   getTask,
   hasTask,
@@ -138,5 +163,7 @@ export {
   listTasks,
   listTodayTasks,
   categories,
-  getCategoryNumber
+  getCategoryNumber,
+  getTaskPriorityCategory,
+  setTaskPriorityCategory
 }

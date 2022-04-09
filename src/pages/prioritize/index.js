@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import containerStyles from '../../components/containers.module.css'
 import buttonStyles from '../../components/buttons.module.css'
 import styles from './styles.module.css'
@@ -13,12 +13,25 @@ import { Link } from 'react-router-dom'
 const Prioritize = (props) => {
   const [selectedTaskIndex, setSelectedTaskIndex] = useState(null)
 
+  useEffect(() => {
+    const priorityTask = taskService.getTaskPriorityCategory(props.priorityCategory)
+    console.log('task found: ', priorityTask, props.priorityCategory)
+    if (priorityTask) setSelectedTaskIndex(priorityTask.index)
+    else setSelectedTaskIndex(null)
+  }, [props])
+
   const renderTasks = () => {
     const tasks = taskService.listTodayTasks()
     return tasks.map((task, idx) => {
       const action = () => {
-        if (selectedTaskIndex === idx) setSelectedTaskIndex(null)
-        else setSelectedTaskIndex(idx)
+        if (selectedTaskIndex === idx) {
+          taskService.setTaskPriorityCategory(task.name, null)
+          setSelectedTaskIndex(null)
+        }
+        else {
+          taskService.setTaskPriorityCategory(task.name, props.priorityCategory)
+          setSelectedTaskIndex(idx)
+        }
       }
       const style = selectedTaskIndex === idx ? buttonStyles.fullButton : buttonStyles.lineButton
       return <button key={`task-btn-${idx}`} className={style} onClick={action}>{task.name}</button>
