@@ -5,8 +5,6 @@
     flex-direction: column;
 }
 
-.tasks a {
-    color: var(--blue);
-    border-color: var(--blue);
+.tasks button {
     margin: 5px 0px;
 }

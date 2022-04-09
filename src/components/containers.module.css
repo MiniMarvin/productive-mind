@@ -15,8 +15,12 @@
     overflow-y: scroll;
 }
 
+.page::-webkit-scrollbar {
+    display: none;
+}
+
 .pageWithFooter {
-    max-height: calc(100% - 45px);
+    height: calc(100% - 45px);
 }
 
 .footer {

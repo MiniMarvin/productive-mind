@@ -28,7 +28,7 @@ const AddTasks = () => {
       <section className={containerStyles.footer}>
         <div />
         <div className={containerStyles.footerItem}>
-          <Link to="/prioritize" className={buttonStyles.backButton}>próximo {`>`}</Link>
+          <Link to="/prioritize/1" className={buttonStyles.backButton}>próximo {`>`}</Link>
         </div>
       </section>
     </>
