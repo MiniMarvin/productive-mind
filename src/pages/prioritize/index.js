@@ -42,9 +42,9 @@ const Prioritize = (props) => {
     <>
       <section className={`${containerStyles.page} ${containerStyles.pageWithFooter}`}>
         <div className={containerStyles.header}>
-          <h1>Priorize</h1>
+          <h1>🔮 Priorize!</h1>
         </div>
-        <span>Qual dessas atividades é mais <b>{props.priorityCategory}</b>?</span>
+        {props.children}
         <div className={styles.tasks}>
           {renderTasks()}
         </div>

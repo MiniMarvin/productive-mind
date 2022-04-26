@@ -17,7 +17,7 @@ const AddTasks = () => {
     <>
       <section className={`${containerStyles.page} ${containerStyles.pageWithFooter}`}>
         <div className={containerStyles.header}>
-          <h1>Hoje</h1>
+          <h1>📆 Hoje</h1>
         </div>
         <span>adicione todas as suas atividades para hoje</span>
         <Link to="/new-task" className={buttonStyles.lineButton}><span className={styles.plus}>+</span> <span>adicionar</span></Link>
