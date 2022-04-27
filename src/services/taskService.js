@@ -1,5 +1,5 @@
 /**
- * @typedef {{name: string, done: boolean, category: string}} task
+ * @typedef {{name: string, done: boolean, category: string, priority: string}} task
  */
 
 const storage = window.localStorage
@@ -115,12 +115,20 @@ const getTodayTasks = () => {
   return getTasks(index)
 }
 
+/**
+ * 
+ * @returns {task[]}
+ */
 const listTasks = (index) => {
   const tasks = getTasks(index)
   if (tasks === null) return []
   return Object.keys(tasks).map(key => tasks[key])
 }
 
+/**
+ * 
+ * @returns {task[]}
+ */
 const listTodayTasks = () => {
   const index = getTodayIndex()
   return listTasks(index)
@@ -140,6 +148,7 @@ const getTaskPriorityCategory = (priority) => {
   return filteredTasks[0]
 }
 
+// TODO: validate if there's an issue with two tasks coliding with each other
 const setTaskPriorityCategory = (taskName, priority) => {
   const todayTasks = listTodayTasks()
   
@@ -152,6 +161,8 @@ const setTaskPriorityCategory = (taskName, priority) => {
     })
   newTasks.forEach(task => setTask(task))
 }
+
+
 
 export {
   getTask,
