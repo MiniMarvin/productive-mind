@@ -6,9 +6,12 @@ import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react'
 import { categories, listTodayTasks, setTask } from '../../services/taskService'
+import { Toast } from 'react-bootstrap';
 
 const CompleteTasks = () => {
   const [tasks, setTasks] = useState([])
+  const [showUndo, setShowUndo] = useState(false)
+  const [finishedTask, setFinishedTask] = useState(null)
 
   useEffect(() => {
     const todayTasks = listTodayTasks()
@@ -22,6 +25,23 @@ const CompleteTasks = () => {
     modifiedTask.done = true
     setTask(modifiedTask)
     setTasks([...tasks])
+    setFinishedTask(modifiedTask)
+    setShowUndo(true)
+  }
+
+  const unfinishLastTask = () => {
+    if (finishedTask === null) return
+    const modifiedTask = tasks.filter(t => t.name === finishedTask.name)[0]
+    modifiedTask.done = false
+    setTask(modifiedTask)
+    setTasks([...tasks])
+    setFinishedTask(null)
+    setShowUndo(false)
+  }
+
+  const closePopup = () => {
+    setShowUndo(false)
+    setFinishedTask(null)
   }
 
   const tasksFragment = () => {
@@ -64,6 +84,18 @@ const CompleteTasks = () => {
           <Link to="/day-review" className={buttonStyles.backButton}>{`<`} ver foco</Link>
         </div>
         <div />
+      </section>
+      <section className={styles.toastSection}>
+        <Toast show={showUndo} onClose={closePopup}>
+          <Toast.Header>
+            <span>✅ Tarefa Finalizada!</span>
+          </Toast.Header>
+          <Toast.Body>
+            <button className={buttonStyles.fullButton} onClick={unfinishLastTask}>
+              desfazer
+            </button>
+          </Toast.Body>
+        </Toast>
       </section>
     </>
   )

@@ -40,3 +40,21 @@
     align-self: center;
     font-weight: bold;
 }
+
+.toastSection {
+    position: fixed;
+    bottom: 0px;
+    left: calc(50% - 100px);
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    background-color: transparent;
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.toastSection span {
+    width: 100%;
+}
