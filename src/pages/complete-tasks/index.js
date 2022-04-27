@@ -1,7 +1,7 @@
 import containerStyles from '../../components/containers.module.css'
 import buttonStyles from '../../components/buttons.module.css'
 import styles from './styles.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react'
@@ -12,6 +12,7 @@ const CompleteTasks = () => {
   const [tasks, setTasks] = useState([])
   const [showUndo, setShowUndo] = useState(false)
   const [finishedTask, setFinishedTask] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const todayTasks = listTodayTasks()
@@ -70,13 +71,31 @@ const CompleteTasks = () => {
     })
   }
 
+  const finishDay = () => {
+    navigate('/finish-day')
+  }
+
+  const tasksText = () => {
+    if (tasks.filter(task => !task.done).length === 0) {
+      return (
+        <>
+          <h2>Parabéns! você terminou todas as tarefas que priorizou para seu dia! 🥳</h2>
+          <span>Finalize o dia para poder visualizar o seu progresso!</span>
+          <button className={buttonStyles.fullButton} onClick={finishDay}>finalizar dia</button>
+        </>
+      )
+    }
+
+    return <span>Parabéns por priorizar, essa é a prioridade que você deu para cada área hoje</span>
+  }
+
   return (
     <>
       <section className={`${containerStyles.page} ${containerStyles.pageWithFooter}`}>
         <div className={containerStyles.header}>
           <h1>📚 Tarefas do dia</h1>
         </div>
-        <span>Parabéns por priorizar, essa é a prioridade que você deu para cada área hoje</span>
+        {tasksText()}
         {tasksFragment()}
       </section>
       <section className={containerStyles.footer}>
@@ -84,6 +103,9 @@ const CompleteTasks = () => {
           <Link to="/day-review" className={buttonStyles.backButton}>{`<`} ver foco</Link>
         </div>
         <div />
+        <div className={containerStyles.footerItem}>
+          <Link to="/finish-day" className={buttonStyles.backButton}>finalizar dia {`>`}</Link>
+        </div>
       </section>
       <section className={styles.toastSection}>
         <Toast show={showUndo} onClose={closePopup}>

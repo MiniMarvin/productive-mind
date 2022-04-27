@@ -7,6 +7,7 @@ import styles from './App.module.css';
 import AddTasks from './pages/add-tasks';
 import CompleteTasks from './pages/complete-tasks';
 import DayReview from './pages/day-review';
+import FinishDay from './pages/finish-day';
 import Home from './pages/home';
 import NewTask from './pages/new-task';
 import Prioritize from './pages/prioritize';
@@ -47,6 +48,9 @@ function App() {
             } />
             <Route path="/complete-tasks" element={
               <CompleteTasks />
+            } />
+            <Route path="/finish-day" element={
+              <FinishDay />
             } />
           </Routes>
         </BrowserRouter>

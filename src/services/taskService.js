@@ -165,6 +165,7 @@ const setTaskPriorityCategory = (taskName, priority) => {
 
 
 export {
+  getIndex,
   getTask,
   hasTask,
   setTask,
