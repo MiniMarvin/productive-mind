@@ -80,7 +80,7 @@ const setTask = (task) => {
   } else {
     const tasks = getTodayTasks()
     const index = getTodayIndex()
-    console.log('tasks:', tasks)
+    // console.log('tasks:', tasks)
     if (tasks !== null) {
       tasks[task.name] = task
       storage.setItem(index, JSON.stringify(tasks))
