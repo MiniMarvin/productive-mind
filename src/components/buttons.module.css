@@ -1,7 +1,7 @@
 .fullButton {
     padding: 10px 25px;
     width: calc(100% - 50px);
-    background-color: var(--green);
+    background-color: var(--primary);
     color: var(--white);
     text-decoration: none;
     text-align: center;
@@ -22,8 +22,8 @@
     width: calc(100% - 54px);
     border-width: 2px;
     border-style: solid;
-    border-color: var(--green);
-    color: var(--green);
+    border-color: var(--primary);
+    color: var(--primary);
     text-decoration: none;
     text-align: center;
     margin: 15px 0px;
@@ -40,7 +40,7 @@
 
 .backButton {
     text-decoration: none;
-    color: var(--green);
+    color: var(--primary);
     font-size: 18px;
 }
 

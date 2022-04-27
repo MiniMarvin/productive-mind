@@ -7,8 +7,8 @@
 
 .tasks button {
     margin: 5px 0px;
+    font-size: 16px;
 }
-
 .disabled {
     pointer-events: none;
     color: lightgray;
