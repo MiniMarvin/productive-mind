@@ -50,7 +50,7 @@ const DayReview = () => {
       <section className={containerStyles.footer}>
         <div />
         <div className={containerStyles.footerItem}>
-          <Link to="/prioritize/1" className={buttonStyles.backButton}>avançar {`>`}</Link>
+          <Link to="/complete-tasks" className={buttonStyles.backButton}>tarefas {`>`}</Link>
         </div>
       </section>
     </>

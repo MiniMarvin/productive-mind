@@ -5,6 +5,7 @@ import {
 } from "react-router-dom"
 import styles from './App.module.css';
 import AddTasks from './pages/add-tasks';
+import CompleteTasks from './pages/complete-tasks';
 import DayReview from './pages/day-review';
 import Home from './pages/home';
 import NewTask from './pages/new-task';
@@ -43,6 +44,9 @@ function App() {
             } />
             <Route path="/day-review" element={
               <DayReview />
+            } />
+            <Route path="/complete-tasks" element={
+              <CompleteTasks />
             } />
           </Routes>
         </BrowserRouter>
