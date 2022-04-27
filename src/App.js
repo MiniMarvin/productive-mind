@@ -5,6 +5,7 @@ import {
 } from "react-router-dom"
 import styles from './App.module.css';
 import AddTasks from './pages/add-tasks';
+import DayReview from './pages/day-review';
 import Home from './pages/home';
 import NewTask from './pages/new-task';
 import Prioritize from './pages/prioritize';
@@ -36,9 +37,12 @@ function App() {
               </Prioritize>
             } />
             <Route path="/prioritize/4" element={
-              <Prioritize priorityCategory='importante' backLink='/prioritize/3' nextLink='/'>
+              <Prioritize priorityCategory='importante' backLink='/prioritize/3' nextLink='/day-review'>
                 <span>Quais das atividades <b>vão facilitar a vida</b> do seu eu do futuro?</span>
               </Prioritize>
+            } />
+            <Route path="/day-review" element={
+              <DayReview />
             } />
           </Routes>
         </BrowserRouter>
