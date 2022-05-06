@@ -11,6 +11,13 @@ import FinishDay from './pages/finish-day';
 import Home from './pages/home';
 import NewTask from './pages/new-task';
 import Prioritize from './pages/prioritize';
+import TagManager from 'react-gtm-module'
+
+const tagManagerArgs = {
+    gtmId: 'GTM-KLBL79S'
+}
+
+TagManager.initialize(tagManagerArgs)
 
 function App() {
   // TODO: define the render of the page here
