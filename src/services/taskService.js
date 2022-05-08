@@ -4,7 +4,7 @@
 
 const storage = window.localStorage
 const categories = [
-  'carreira',
+  'trabalho',
   'pessoal',
   'estudo'
 ]
